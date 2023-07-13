@@ -2,6 +2,8 @@
 
 Wikipedia API から「今日は何の日？」を取得し、一覧として表示する
 
+https://i.gyazo.com/21dae40bd65f203223ceefcfe3abee61.png
+
 ## Wikipedia API の使い方
 
 - 「https://ja.wikipedia.org/w/api.php?format=json&utf8&origin=*&action=query&prop=revisions&rvprop=content&titles=7月13日」という月日つきのURL にアクセスし、JSON を取得する
