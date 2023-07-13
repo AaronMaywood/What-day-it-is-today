@@ -28,7 +28,8 @@ function wikipediaWhatIsToday() {
 
 <template>
   <ul>
-    <li>今日は山の日です</li>
-    {{articles}}
+    <li v-for="item in articles">
+      {{item}}
+    </li>
   </ul>
 </template>
