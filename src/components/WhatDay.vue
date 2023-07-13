@@ -20,6 +20,8 @@ fetch(url,{ mode: 'cors' })
     // articles.value = dekigoto.match(/\*.+\n/g);  // *の前に\が必要
     const tmp = dekigoto.match(/\*.+\n/g);  // *の前に\が必要
     for(let i=0;i<tmp.length;i++){ 
+      // 行頭の「*」を削除
+      tmp[i] = tmp[i].replace(/^\* /,'')
       // Wikipedia記事にリンクを張る
       const regexLink = /\[\[([^\]]+)\]\]/g
       tmp[i] = tmp[i].replaceAll(regexLink,replacerfn)

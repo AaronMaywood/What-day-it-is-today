@@ -10,7 +10,7 @@ Wikipedia API から「今日は何の日？」を取得し、一覧として表
 
 ## MediaWiki のマークアップの処理
 
-TODO - 行頭にある「*」は削除
+- 行頭にある「*」は削除
 
 ### リンク
 「[[Microsoft Windows 2000|Windows 2000]]」という表記を「https://ja.wikipedia.org/wiki/Microsoft_Windows_2000」というリンクにする
