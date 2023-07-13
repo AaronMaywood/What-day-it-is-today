@@ -31,7 +31,8 @@ fetch(url,{ mode: 'cors' })
       const regexProvisional = /{{仮リンク\|([^\|]+)\|.+}}/g
       tmp[i] = tmp[i].replaceAll(regexProvisional,'$1')
     }
-    articles.value = tmp
+    // コメント行を排除
+    articles.value = tmp.filter(i => i.match('<!--') ? false : true ) // 「<!--」を含まない行だけにする
   })
 
 // リンク文字列 [[name]] をWikipedia のリンクにする
