@@ -21,35 +21,35 @@ fetch(url,{ mode: 'cors' })
     const tmp = dekigoto.match(/\*.+\n/g);  // *の前に\が必要
     for(let i=0;i<tmp.length;i++){ 
       // Wikipedia記事にリンクを張る
-      const regex = /\[\[([^\]]+)\]\]/g
-      tmp[i] = tmp[i].replaceAll(regex,replacerfn)
-      // TODO 以下のテンプレート文字列を処理する
-      // TODO {{Cite ...}}→削除（引用元表記）
-      // TODO {{仮リンク|ハールレム攻城戦|en|Siege of Haarlem}}→「ハールレム攻城戦」
+      const regexLink = /\[\[([^\]]+)\]\]/g
+      tmp[i] = tmp[i].replaceAll(regexLink,replacerfn)
+      // 以下のテンプレート文字列を処理する
+      // {{Cite ...}}→削除（引用元表記）
+      const regexCite = /{{Cite[^}]+}}/g
+      tmp[i] = tmp[i].replaceAll(regexCite,'')
+      // {{仮リンク|ハールレム攻城戦|en|Siege of Haarlem}}→「ハールレム攻城戦」
+      const regexProvisional = /{{仮リンク\|([^\|]+)\|.+}}/g
+      tmp[i] = tmp[i].replaceAll(regexProvisional,'$1')
     }
     articles.value = tmp
   })
 
 // リンク文字列 [[name]] をWikipedia のリンクにする
 // [[1787年]] → <a href="https://ja.wikipedia.org/wiki/1787%E5%B9%B4" target="_blank">1787年</a>
+// [[Microsoft Windows 2000|Windows 2000]] → Microsoft_Windows_2000 というリンクにする
 function replacerfn(match, p1){
-  // 「貞観 (日本)|貞観」の場合にはwikipediaのURLを「貞観_(日本)」にし、リンク文字は「貞観」とする
   let name = p1
   let wikiname = p1
-  const regexp = /([^(]+) \(([^(]+)\)\|.*/  // 「貞観」「日本」に切り分ける
+  const regexp = /([^|]+)\|(.*)/
   if(p1.match(regexp)){
     const words = p1.match(regexp)
-    name = words[1]
-    wikiname = `${words[1]}_(${words[2]})`
-    console.log({
-    name:name,wikiname:wikiname})
+    wikiname = words[1].replaceAll(' ','_')
+    name = words[2]
   }
 
   const url = encodeURI(`https://ja.wikipedia.org/wiki/${wikiname}`)
   return `<a href="${url}" target="_blank">${name}</a>`
 }
-
-
 </script>
 
 <template>
