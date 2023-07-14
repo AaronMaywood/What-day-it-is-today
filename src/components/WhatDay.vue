@@ -37,7 +37,9 @@ fetch(url,{ mode: 'cors' })
       tmp[i] = tmp[i].replaceAll(regexProvisional,'$1')
     }
     // コメント行を排除
-    articles.value = tmp.filter(i => i.match('<!--') ? false : true ) // 「<!--」を含まない行だけにする
+    articles.value = tmp
+      .filter(i => i.match('<!--') ? false : true ) // 「<!--」が含まれる行は削除
+      .reverse()                                    // 最新順にする
   })
 
 // リンク文字列 [[name]] をWikipedia のリンクにする

@@ -1,8 +1,8 @@
 # what-day-it-is-today
 
-Wikipedia API から「今日は何の日？」を取得し、一覧として表示する
+Wikipedia API から「今日は何の日？」を取得し、最新情報からの降順一覧として表示する
 
-https://i.gyazo.com/21dae40bd65f203223ceefcfe3abee61.png
+https://i.gyazo.com/e97567bba839a1b59e88ad87e59f95c8.png
 
 ## Wikipedia API の使い方
 
