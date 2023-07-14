@@ -29,6 +29,9 @@ fetch(url,{ mode: 'cors' })
       // {{Cite ...}}→削除（引用元表記）
       const regexCite = /{{Cite[^}]+}}/g
       tmp[i] = tmp[i].replaceAll(regexCite,'')
+      // {{audio ...}}→削除
+      const regexAudio = /{{audio[^}]+}}/g
+      tmp[i] = tmp[i].replaceAll(regexAudio,'')
       // {{仮リンク|ハールレム攻城戦|en|Siege of Haarlem}}→「ハールレム攻城戦」
       const regexProvisional = /{{仮リンク\|([^\|]+)\|.+}}/g
       tmp[i] = tmp[i].replaceAll(regexProvisional,'$1')

@@ -21,9 +21,12 @@ https://i.gyazo.com/21dae40bd65f203223ceefcfe3abee61.png
 
 {{仮リンク|ハールレム攻城戦|en|Siege of Haarlem}}→「ハールレム攻城戦」と置き換える
 
-### 引用元情報は削除
+### 削除するタグ
 
-{{Cite ...}}→削除
+- 引用元
+    {{Cite ...}}→削除
+- オーディオ
+    {{audio|La Marseillaise.ogg|聴く}}
 
 ### コメント
 
