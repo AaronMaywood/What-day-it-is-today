@@ -10,6 +10,13 @@ const today = ref(monthDay)
 <template>
   <main>
     <h1>今日はなんの日？（{{today}}）</h1>
-	  <WhatDay></WhatDay>
+    <Suspense>
+      <template #default>
+        <WhatDay></WhatDay>
+      </template>
+      <template #fallback>
+        loading...
+      </template>
+    </Suspense>
   </main>
 </template>
