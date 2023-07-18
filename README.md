@@ -4,6 +4,9 @@ Wikipedia API から「今日は何の日？」を取得し、最新情報から
 
 https://i.gyazo.com/e97567bba839a1b59e88ad87e59f95c8.png
 
+動作するもの：
+https://aaronmaywood.github.io/What-day-it-is-today/
+
 ## Wikipedia API の使い方
 
 - 「https://ja.wikipedia.org/w/api.php?format=json&utf8&origin=*&action=query&prop=revisions&rvprop=content&titles=7月13日」という月日つきのURL にアクセスし、JSON を取得する
