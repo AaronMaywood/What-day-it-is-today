@@ -8,10 +8,14 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: './', // ビルド時に相対パスを使用
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // GitHub Pages へデプロイするための追記
+  base: './',	// ビルド時に相対パスを使用
+  build: {
+    outDir: './docs', // ビルド出力場所の指定
+  },
 })
